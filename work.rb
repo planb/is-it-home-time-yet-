@@ -16,11 +16,14 @@ class Work
   private
 
   def between_work_hours?(current_time)
-    # ...
-    true
+    if (current_time.strftime("%H:%M") >= @start) && (current_time.strftime("%H:%M") <= @finish)
+      true
+    end
   end
 
   def between_work_days?(current_time)
-    false
+    if (current_time.strftime("%w") >= "1") && (current_time.strftime("%w") <= "5")
+      true
+    end
   end
 end
